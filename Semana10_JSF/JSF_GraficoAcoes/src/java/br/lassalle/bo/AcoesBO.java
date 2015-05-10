@@ -10,8 +10,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.CategoryAxis;
+import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartModel;
-import org.primefaces.model.chart.LineChartSeries;
 
 /**
  *
@@ -20,38 +21,43 @@ import org.primefaces.model.chart.LineChartSeries;
 @ManagedBean
 @SessionScoped
 public class AcoesBO implements Serializable {
- 
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
     private LineChartModel model;
 
     public AcoesBO() {
         model = new LineChartModel();
         
-        LineChartSeries series1 = new LineChartSeries();
-        series1.setLabel("Petrobras ON");
-        series1.set(1, 2);
-        series1.set(2, 1);
-        series1.set(3, 3);
-        series1.set(4, 6);
-        series1.set(5, 8);
+        ChartSeries petro = new ChartSeries();
+        petro.setLabel("Petrobras ON");
+        petro.set("2004", 120);
+        petro.set("2005", 100);
+        petro.set("2006", 44);
+        petro.set("2007", 150);
+        petro.set("2008", 25);
         
-        LineChartSeries series2 = new LineChartSeries();
-        series2.setLabel("Vale ON");
-        series2.set(1, 6);
-        series2.set(2, 3);
-        series2.set(3, 2);
-        series2.set(4, 7);
-        series2.set(5, 9);
+        ChartSeries vale = new ChartSeries();
+        vale.setLabel("Vale ON");
+        vale.set("2004", 52);
+        vale.set("2005", 60);
+        vale.set("2006", 110);
+        vale.set("2007", 90);
+        vale.set("2008", 120);
         
-        model.addSeries(series1);
-        model.addSeries(series2);
+        model.addSeries(petro);
+        model.addSeries(vale);
+        
         model.setTitle("Ações Bovespa");
         model.setLegendPosition("e");
+        model.setShowPointLabels(true);
+        model.getAxes().put(AxisType.X, new CategoryAxis("Ano"));
         
         Axis yAxis = model.getAxis(AxisType.Y);
+        yAxis.setLabel("Valor");
         yAxis.setMin(0);
-        yAxis.setMax(10);
+        yAxis.setMax(200);
+
     }
 
     public LineChartModel getModel() {
