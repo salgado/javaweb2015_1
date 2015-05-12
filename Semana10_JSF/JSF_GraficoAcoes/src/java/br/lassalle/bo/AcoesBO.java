@@ -23,7 +23,7 @@ public class AcoesBO implements Serializable {
 
     private String nome;
     
-    private int ano;
+    private String ano;
 
     public String getNome() {
         return nome;
@@ -33,11 +33,11 @@ public class AcoesBO implements Serializable {
         this.nome = nome;
     }
 
-    public int getAno() {
+    public String getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 
@@ -51,7 +51,7 @@ public class AcoesBO implements Serializable {
     
     private float valor;
     
-    public  AcoesBO (String nome, int ano, float valor)
+    public  AcoesBO (String nome, String ano, float valor)
     {
         this.nome = nome;
         this.ano = ano;

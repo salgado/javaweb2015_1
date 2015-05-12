@@ -38,7 +38,8 @@ public class AcoesController implements Serializable {
         petro.setLabel("Petrobras ON");
         AcoesDAO acoesDAO = new AcoesDAO();
         
-        ArrayList<AcoesBO> acaoPetro = acoesDAO.getAcoesPetroList();
+       ArrayList<AcoesBO> acaoPetro = acoesDAO.getAcoesPetroCSV();
+       //  acaoPetro = acoesDAO.getAcoesPetroList();
         
         for (AcoesBO acaoPetro1 : acaoPetro) {
             petro.set(acaoPetro1.getAno(), acaoPetro1.getValor());
@@ -48,7 +49,7 @@ public class AcoesController implements Serializable {
         
         ChartSeries vale = new ChartSeries();
         vale.setLabel("Vale ON");
-        ArrayList<AcoesBO> acaoVale = acoesDAO.getAcoesValeList();
+        ArrayList<AcoesBO> acaoVale = acoesDAO.getAcoesValeCSV();
         for (AcoesBO acaoVale1 : acaoVale) {
             vale.set(acaoVale1.getAno(), acaoVale1.getValor());
         }
