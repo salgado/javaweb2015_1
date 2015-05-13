@@ -65,11 +65,13 @@ public class AcoesController implements Serializable {
         Axis yAxis = model.getAxis(AxisType.Y);
         yAxis.setLabel("Valor");
         yAxis.setMin(0);
+        yAxis.setMax(40);
 
     }
 
     public LineChartModel getModel() {
         return model;
+        // grafico de linha
     }
     
 }
