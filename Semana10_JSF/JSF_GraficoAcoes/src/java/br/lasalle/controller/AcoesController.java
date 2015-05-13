@@ -57,7 +57,7 @@ public class AcoesController implements Serializable {
         model.addSeries(petro);
         model.addSeries(vale);
         
-        model.setTitle("Ações Bovespa");
+        model.setTitle("Ações Bovespa Fev/2015");
         model.setLegendPosition("e");
         model.setShowPointLabels(true);
         model.getAxes().put(AxisType.X, new CategoryAxis("Ano"));
@@ -65,7 +65,6 @@ public class AcoesController implements Serializable {
         Axis yAxis = model.getAxis(AxisType.Y);
         yAxis.setLabel("Valor");
         yAxis.setMin(0);
-        yAxis.setMax(200);
 
     }
 
