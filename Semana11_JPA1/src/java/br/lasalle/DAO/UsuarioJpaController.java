@@ -9,6 +9,7 @@ import br.lasalle.BO.Usuario;
 import br.lasalle.DAO.exceptions.NonexistentEntityException;
 import br.lasalle.DAO.exceptions.PreexistingEntityException;
 import br.lasalle.DAO.exceptions.RollbackFailureException;
+import br.lasalle.connection.ConnectionFactory;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -25,12 +26,17 @@ import javax.transaction.UserTransaction;
  */
 public class UsuarioJpaController implements Serializable {
 
-    public UsuarioJpaController(UserTransaction utx, EntityManagerFactory emf) {
+    public UsuarioJpaController(UserTransaction utx) {
         this.utx = utx;
-        this.emf = emf;
+        //this.emf = emf;
     }
     private UserTransaction utx = null;
-    private EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = ConnectionFactory.getConnection();
+
+    public UsuarioJpaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();

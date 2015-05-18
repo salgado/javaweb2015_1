@@ -36,7 +36,20 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    Usando o JPA
+                    <h:form>
+                        <p:commandButton value="Lista" actionListener="#{usuarioController.usuarios}"/>
+                        <p:dataTable var="usu" value="#{usuarioController.usuarios}">
+                            <p:column headerText="Login">
+                                <h:outputText value="#{usu.login}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Senha">
+                                <h:outputText value="#{usu.senha}"/>
+                            </p:column>
+                                              
+                        </p:dataTable>
+                                     
+                    </h:form>
                 </p:layoutUnit>
 
             </p:layout>
